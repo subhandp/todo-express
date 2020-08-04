@@ -18,10 +18,6 @@ const getTodoId = async(todoId) => {
     return await Todos.findOne({ _id: todoId });
 };
 
-app.get('/', (req, res) => {
-    res.send('Hello World!')
-})
-
 app.get("/todo", async(req, res) => {
     const todolist = await getTodo()
         .then((response) => {
