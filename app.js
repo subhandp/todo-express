@@ -77,7 +77,7 @@ app.route('/todo/edit/:id')
         try {
             await Todos.findByIdAndUpdate(req.params.id, { name: req.body.todo, description: req.body.deskripsi }).exec();
             console.log("<Data berhasil di update>");
-            res.redirect("/todo/edit/" + req.params.id);
+            res.redirect('back')
         } catch (err) {
             console.log(err)
             console.log('Kesalahan, data gagal di update');
