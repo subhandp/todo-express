@@ -20,10 +20,10 @@ block content
                 button(type="submit" class="btn btn-primary") Kirim
 
     if todo
-        .col-12
-            - ul                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+        .col-6
+            ul(class='list-group')                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
                 each to in todo
-                    li= to.name + ' - ' + to.description  
-                    a(class='button' href='todo/edit/' + to._id) Edit 
-                    a(class='button' href='todo/delete/' + to._id) Delete 
+                    li(class='list-group-item')  #{to.name} - #{to.description} 
+                        a(class='btn btn-primary btn-sm button' href='todo/edit/' + to._id) Edit 
+                        a(class='btn btn-danger btn-sm button' href='todo/delete/' + to._id) Delete 
 
