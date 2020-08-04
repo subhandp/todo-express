@@ -59,9 +59,26 @@ app.get("/todo/delete/:id", async(req, res) => {
 app.get("/todo/list", async(req, res) => {
     const todolist = await getTodo()
         .then((response) => {
-            res.render("list", { todo: response });
+            res.render("list", { todo: response, list: true });
         })
         .catch((err) => console.log(err));
+});
+
+app.get("/todo/doneundone/:id", async(req, res) => {
+    const todos = await Todos.findOne({ _id: req.params.id });
+    if (todos === null) {
+        console.log('Todo Not found!');
+    } else {
+        let status = todos.status ? false : true;
+        try {
+            await Todos.findByIdAndUpdate(req.params.id, { status: status }).exec();
+            console.log("<Data berhasil di update>");
+            res.redirect('back')
+        } catch (err) {
+            console.log(err)
+            console.log('Kesalahan, data gagal di update');
+        }
+    }
 });
 
 app.route('/todo/edit/:id')
