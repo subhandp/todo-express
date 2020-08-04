@@ -1,7 +1,5 @@
 extends layouts.pug
 
-
-
 block content
     .col-12
         if todoId
@@ -9,11 +7,12 @@ block content
         else if todo
             h1 Tambah Todo
     .col-12
-        if todoId != null
+        if todoId
             form(method="POST" action='/todo/edit/'+todoId._id)
                 input(type='text' class="form-control mb-3" name="todo" placeholder="Nama aktifitas"  value=todoId.name )
                 input(type='text' class="form-control mb-3" name="deskripsi" placeholder="Deskripsi aktifitas" value=todoId.description)
-                button(type="submit" class="btn btn-primary") Update
+                button(type="submit" class="btn btn-primary") Update 
+                a(class='btn btn-warning button' href='/todo') Back
         else if todo
              form(method="POST" action='/todo/create')
                 input(type='text' class="form-control mb-3" name="todo" placeholder="Nama aktifitas")                                                                                                                                                                                                                                                                                                                                                                 
