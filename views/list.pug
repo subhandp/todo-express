@@ -1,21 +1,13 @@
 extends layouts.pug
 
-mixin todoList(todoName,todoDeskripsi)
-    <table class="table table-bordered">
-        <thead>
-            <tr>
-                <th>Todo List</th>
-                <th>Deskripsi</th>
-            </tr>
-        </thead>
-        <tbody>
-            <tr>
-                p = todoName
-                p = todoDeskripsi
-            </tr>
-        </tbody>
-    <table>
-
 block content
-    each to in todo
-        +todoList(to.name, to.description)
+    table(class='table table-bordered')
+        thead
+            tr
+                th Todo List
+                th Deskripsi
+        tbody
+        each to in todo
+            tr
+                td  #{to.name}
+                td  #{to.description} 
