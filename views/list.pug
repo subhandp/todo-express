@@ -1,4 +1,3 @@
-
 extends layouts.pug
 
 block content
@@ -8,8 +7,14 @@ block content
                 tr
                     th Todo List
                     th Deskripsi
+                    th Status
             tbody
             each to in todo
                 tr
-                    td  #{to.name}
+                    td  #{to.name} 
                     td  #{to.description} 
+                    if to.status
+                        td SUDAH
+                    else
+                        td
+                            STRONG BELUM
