@@ -85,18 +85,6 @@ app.route('/todo/edit/:id')
         }
     })
 
-// app.post("/todo/edit/:id", async(req, res) => {
-//     try {
-//         await Todos.findByIdAndUpdate(req.params.id, { name: req.body.todo, description: req.body.deskripsi }).exec();
-//         console.log("<Data berhasil di update>");
-//         res.redirect("/todo/edit/" + req.params.id);
-//     } catch (err) {
-//         console.log(err)
-//         console.log('Kesalahan, data gagal di update');
-//         res.redirect("/todo/edit/" + req.params.id);
-//     }
-
-// });
 
 
 app.listen(port, () => {
