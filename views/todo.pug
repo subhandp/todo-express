@@ -1,0 +1,30 @@
+extends layouts.pug
+
+
+
+block content
+    .col-12
+        if todoId
+            h1 Edit Todo
+        else if todo
+            h1 Tambah Todo
+    .col-12
+        if todoId != null
+            form(method="POST" action='/todo/edit/'+todoId._id)
+                input(type='text' class="form-control mb-3" name="todo" placeholder="Nama aktifitas"  value=todoId.name )
+                input(type='text' class="form-control mb-3" name="deskripsi" placeholder="Deskripsi aktifitas" value=todoId.description)
+                button(type="submit" class="btn btn-primary") Update
+        else if todo
+             form(method="POST" action='/todo/create')
+                input(type='text' class="form-control mb-3" name="todo" placeholder="Nama aktifitas")                                                                                                                                                                                                                                                                                                                                                                 
+                input(type='text' class="form-control mb-3" name="deskripsi" placeholder="Deskripsi aktifitas")
+                button(type="submit" class="btn btn-primary") Kirim
+
+    if todo
+        .col-12
+            - ul                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                    
+                each to in todo
+                    li= to.name + ' - ' + to.description  
+                    a(class='button' href='todo/edit/' + to._id) Edit 
+                    a(class='button' href='todo/delete/' + to._id) Delete 
+
