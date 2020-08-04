@@ -6,8 +6,12 @@ block content
             tr
                 th Todo List
                 th Deskripsi
+                th Aksi
         tbody
         each to in todo
             tr
                 td  #{to.name}
                 td  #{to.description} 
+                td
+                    a(class='btn btn-primary btn-sm button' href='edit/' + to._id) Edit 
+                    a(class='btn btn-danger btn-sm button' href='delete/' + to._id) Delete   
