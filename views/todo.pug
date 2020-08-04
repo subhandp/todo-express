@@ -25,6 +25,8 @@ block content
                 each to in todo
                     li(class='list-group-item')  #{to.name} - #{to.description} 
                         if to.status
+                            span
+                                strong  (Done)
                             a(class='btn btn-warning  btn-sm button' href='todo/doneundone/' + to._id) Set UnDone
                         else
                             a(class='btn btn-success btn-sm button' href='todo/doneundone/' + to._id) Set Done
